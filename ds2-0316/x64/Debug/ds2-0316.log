@@ -1,0 +1,6 @@
+﻿  func.c
+  main.c
+C:\Users\minpeter\github.com\minpeter\data structure-2023\ds2-0316\main.c(22,2): warning C4013: 'MakeLeftSubTree' undefined; assuming extern returning int
+C:\Users\minpeter\github.com\minpeter\data structure-2023\ds2-0316\main.c(23,2): warning C4013: 'MakeRightSubTree' undefined; assuming extern returning int
+  Generating Code...
+  ds2-0316.vcxproj -> C:\Users\minpeter\github.com\minpeter\data structure-2023\x64\Debug\ds2-0316.exe
