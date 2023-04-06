@@ -1,6 +1,11 @@
 #include <stdio.h>
 #include "BinaryTree.h"
 
+void ShowIntData(int data) {
+	printf("%d ", data);
+}
+
+
 int main(void) {
 	BTreeNode* bt1 = MakeBTreeNode();
 	BTreeNode* bt2 = MakeBTreeNode();
@@ -8,7 +13,6 @@ int main(void) {
 	BTreeNode* bt4 = MakeBTreeNode();
 	BTreeNode* bt5 = MakeBTreeNode();
 	BTreeNode* bt6 = MakeBTreeNode();
-	BTreeNode* bt7 = MakeBTreeNode();
 
 	SetData(bt1, 1);
 	SetData(bt2, 2);
@@ -16,18 +20,32 @@ int main(void) {
 	SetData(bt4, 4);
 	SetData(bt5, 5);
 	SetData(bt6, 6);
-	SetData(bt7, 7);
 
 
 	MakeLeftSubTree(bt1, bt2);
 	MakeRightSubTree(bt1, bt3);
 	MakeLeftSubTree(bt2, bt4);
 	MakeRightSubTree(bt2, bt5);
-	MakeLeftSubTree(bt4, bt6);
-	MakeRightSubTree(bt4, bt7);
+	MakeLeftSubTree(bt3, bt6);
 
-	printf("%d \n", GetData(GetLeftSubTree(GetLeftSubTree(bt1))));
-	printf("%d \n", GetData(GetRightSubTree(GetLeftSubTree(GetLeftSubTree(bt1)))));
+	printf("중위순회\n");
+	InorderTraverse(bt1, ShowIntData);
+	printf("\n");
+
+	printf("전위순회\n");
+	PreorderTraverse(bt1, ShowIntData);
+	printf("\n");
+
+	printf("후위순회\n");
+	PostorderTraverse(bt1, ShowIntData);
+	printf("\n");
+
+	DeleteTree(bt1);
+
+	printf("후위순회\n");
+	PostorderTraverse(bt1, ShowIntData);
+	// 당연하지만 비어있기에 아무것도 출력되지 않는다.
+	printf("\n");
 
 	return 0;
 }
