@@ -40,4 +40,5 @@ void main() {
 		printf("탐색 실패 \n");
 	else
 		printf("탐색 성공한 키의 값: %d \n", BSTGetNodeData(sNode));
+
 }

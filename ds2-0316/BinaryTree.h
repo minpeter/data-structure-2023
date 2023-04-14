@@ -25,6 +25,6 @@ typedef struct _bTreeNode
  void PostorderTraverse(BTreeNode* bt, VisitFuncPtr action); // 후위 순회
 
  // 노드의 삭제
- void DeleteTree(BTreeNode* bt);
+ void DeleteTree(BTreeNode** bt);
 
 #endif
