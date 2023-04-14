@@ -6,7 +6,7 @@
 typedef BTData BSTData;
 
 // BST의 생성 및 초기화
-void BSTMakAndInit(BTreeNode** pRoot);
+void BSTMakeAndInit(BTreeNode** pRoot);
 
 // 노드에 저장된 데이터 반환
 BSTData BSTGetNodeData(BTreeNode* bst);
