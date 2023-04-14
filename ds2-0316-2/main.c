@@ -1,9 +1,13 @@
+#include <string.h>
 #include "LCRSTree.h"
 
 LCRSNode* LCRS_CreateNode(ElementType NewData) {
 	LCRSNode* NewNode = (LCRSNode*)malloc(sizeof(LCRSNode));
-	NewNode->LeftChild = NULL;
-	NewNode->RightSibling = NULL;
+	if (NewNode == NULL) {
+		printf("Memory allocation failed.\n");
+		return NULL;
+	}
+	memset(NewNode, 0, sizeof(LCRSNode));
 	NewNode->Data = NewData;
 	return NewNode;
 }
@@ -51,7 +55,7 @@ void LCRS_PrintTree(LCRSNode* Node, int Depth) {
 		LCRS_PrintTree(Node->RightSibling, Depth);
 }
 
-int main(void) {
+void main() {
 	LCRSNode* Root = LCRS_CreateNode('A');
 	
 	LCRSNode* B = LCRS_CreateNode('B');
@@ -81,6 +85,4 @@ int main(void) {
 	LCRS_PrintTree(Root, 0);
 	
 	LCRS_DestroyTree(Root);
-
-	return 0;	
 }

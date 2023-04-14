@@ -69,7 +69,7 @@ void DeleteTree(BTreeNode** bt) {
 	DeleteTree(&((*bt)->left));
 	DeleteTree(&((*bt)->right));
 
-	printf("Delete: %d\nAddr: %p\n",(*bt)->data, bt);
+	printf("Delete: %d\nAddr: %p\n", (*bt)->data, bt);
 
 	free(*bt);
 	*bt = NULL;
