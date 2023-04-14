@@ -3,10 +3,8 @@
 #include "BinaryTree.h"
 
 BTreeNode* MakeBTreeNode(void) {
-	BTreeNode* nd = (BTreeNode*)malloc(sizeof(BTreeNode));
-	
-	nd->left = NULL;
-	nd->right = NULL;
+	BTreeNode* nd = (BTreeNode*)calloc(1, sizeof(BTreeNode));
+
 	return nd;
 }
 
@@ -64,11 +62,15 @@ void PostorderTraverse(BTreeNode* bt, VisitFuncPtr action) {
 	action(bt->data);
 }
 
-void DeleteTree(BTreeNode* bt) {
-	if (bt == NULL)
+void DeleteTree(BTreeNode** bt) {
+	if (*bt == NULL)
 		return;
-	DeleteTree(bt->left);
-	DeleteTree(bt->right);
-	printf("Delete: %d\n", bt->data);
-	free(bt);
+
+	DeleteTree(&((*bt)->left));
+	DeleteTree(&((*bt)->right));
+
+	printf("Delete: %d\nAddr: %p\n",(*bt)->data, bt);
+
+	free(*bt);
+	*bt = NULL;
 }

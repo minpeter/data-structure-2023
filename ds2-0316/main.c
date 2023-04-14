@@ -6,7 +6,7 @@ void ShowIntData(int data) {
 }
 
 
-int main(void) {
+void main() {
 	BTreeNode* bt1 = MakeBTreeNode();
 	BTreeNode* bt2 = MakeBTreeNode();
 	BTreeNode* bt3 = MakeBTreeNode();
@@ -40,12 +40,13 @@ int main(void) {
 	PostorderTraverse(bt1, ShowIntData);
 	printf("\n");
 
-	DeleteTree(bt1);
+	printf("%p\n", bt1);
+
+	DeleteTree(&bt1);
 
 	printf("후위순회\n");
 	PostorderTraverse(bt1, ShowIntData);
-	// 당연하지만 비어있기에 아무것도 출력되지 않는다.
-	printf("\n");
 
-	return 0;
+	// 당연하지만 bt1를 비롯한 트리가 해제되었기에 아무것도 출력되지 않는다.
+	printf("\n");
 }
